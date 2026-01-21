@@ -1,6 +1,63 @@
 # AI Agent Learning Lab
 
-An interactive educational application that demonstrates how to build AI agents using OpenAI's API. This app progressively teaches four key concepts through hands-on examples.
+An interactive educational application and comprehensive session material for learning how to build AI agents using OpenAI's API. This repository includes both a hands-on web application and detailed theoretical notes that progressively teach AI agent concepts from basics to advanced implementations.
+
+## Session Materials & Learning Notes
+
+This repository includes comprehensive learning materials in the `/notes` directory covering theoretical concepts and best practices:
+
+### Available Session Notes
+
+1. **[0-open-ai-api.md](notes/0-open-ai-api.md)** – OpenAI API Setup and Configuration
+   - Environment setup
+   - API key management
+   - Basic client initialization
+
+2. **[1-hello-chat.md](notes/1-hello-chat.md)** - One-Off vs. Chat-Based LLM Interactions
+   - Understanding different interaction patterns
+   - Context management strategies
+   - Token usage optimization
+   - Best practices for both approaches
+
+3. **[2-memory.md](notes/2-memory.md)** – Memory and Context Management
+   - Conversation history handling
+   - State persistence
+   - Context window management
+
+4. **[3-agent.md](notes/3-agent.md)** – What is an Agent?
+   - Agent core concepts and definitions
+   - Types of agents (Chat-based vs. Task-based)
+   - Real-world applications and use cases
+   - Best practices and design principles
+   - Common challenges and solutions
+
+5. **[4-function-call.md](notes/4-function-call.md)** – Function Calling & Tool Use
+   - Tool definition and schemas
+   - Function calling patterns
+   - Tool orchestration
+
+6. **[5-agent-loop.md](notes/5-agent-loop.md)** - Agentic Loops
+   - Multi-step reasoning
+   - Task completion workflows
+   - Loop management and termination
+
+7. **[6-model-context-protocol.md](notes/6-model-context-protocol.md)** - Model Context Protocol (MCP)
+   - Standardized context management
+   - Protocol implementation
+   - Advanced integration patterns
+
+8. **[7-retrieval-augmented-generation.md](notes/7-retrieval-augmented-generation.md)** - RAG (Retrieval Augmented Generation)
+   - Information retrieval concepts
+   - Augmented generation techniques
+   - Implementation strategies
+
+### Using the Session Materials
+
+These notes are designed to be used alongside the interactive application:
+- Start with note 0 to set up your environment
+- Read each note before exploring the corresponding section in the app
+- Notes provide theoretical foundation while the app provides practical implementation
+- Perfect for self-paced learning or structured workshop sessions
 
 ## Features
 
@@ -73,24 +130,44 @@ Experience agentic workflows:
 ## Project Structure
 
 ```
-src/
-├── components/
-│   ├── Section1_Intro/        # Basic API introduction
-│   ├── Section2_Conversation/ # Conversation with memory
-│   ├── Section3_Tools/        # Function calling demo
-│   ├── Section4_Agent/        # Complete agent workflow
-│   └── shared/                # Reusable components
-├── lib/
-│   ├── openai.ts             # OpenAI client setup
-│   ├── db.ts                 # LowDB configuration
-│   └── tools/                # Tool implementations
-│       ├── reddit.ts
-│       ├── weather.ts
-│       └── dalle.ts
-├── types/
-│   └── index.ts              # TypeScript definitions
-├── App.tsx                   # Main application
-└── App.css                   # Styles
+uber-ai-agent/
+├── notes/                              # Learning materials & session notes
+│   ├── 0-open-ai-api.md               # OpenAI API setup
+│   ├── 1-hello-chat.md                # LLM interaction patterns
+│   ├── 2-memory.md                    # Memory & context management
+│   ├── 3-agent.md                     # Agent concepts & design
+│   ├── 4-function-call.md             # Function calling & tools
+│   ├── 5-agent-loop.md                # Agentic loops & workflows
+│   ├── 6-model-context-protocol.md    # MCP integration
+│   └── 7-retrieval-augmented-generation.md  # RAG implementation
+│
+├── src/
+│   ├── components/
+│   │   ├── Section1_Intro/            # Basic API introduction
+│   │   ├── Section2_Conversation/     # Conversation with memory
+│   │   ├── Section3_Tools/            # Function calling demo
+│   │   ├── Section4_Agent/            # Complete agent workflow
+│   │   └── shared/                    # Reusable components
+│   │       ├── AgentStepView.tsx      # Agent step visualization
+│   │       ├── JsonViewer.tsx         # JSON response viewer
+│   │       ├── MessageBubble.tsx      # Chat message component
+│   │       └── Navigation.tsx         # Section navigation
+│   ├── lib/
+│   │   ├── openai.ts                  # OpenAI client setup
+│   │   ├── localStore.ts              # LocalStorage database
+│   │   └── tools/                     # Tool implementations
+│   │       ├── reddit.ts              # Reddit API integration
+│   │       ├── weather.ts             # Weather API integration
+│   │       └── dalle.ts               # DALL-E image generation
+│   ├── types/
+│   │   └── index.ts                   # TypeScript definitions
+│   ├── App.tsx                        # Main application
+│   ├── App.css                        # Styles
+│   ├── main.tsx                       # Application entry point
+│   └── index.css                      # Global styles
+│
+├── .env                                # Environment variables
+└── package.json                        # Project dependencies
 ```
 
 ## Learning Path
@@ -111,17 +188,18 @@ src/
 ## API Usage
 
 This app uses:
-- OpenAI GPT-4 for chat completions
+- OpenAI GPT-5-mini for chat completions
 - OpenAI DALL-E 3 for image generation
 - Reddit's public JSON API (no auth required)
 - OpenWeatherMap API (demo mode available)
 
-## Notes
+## Important Notes
 
 - The app uses `dangerouslyAllowBrowser: true` for OpenAI API calls - this is for learning purposes only
 - In production, API calls should go through a backend server
 - Conversations are stored locally in `db.json`
 - The app demonstrates concepts; production apps need additional security measures
+- This is session material intended for educational workshops and training
 
 ## License
 
