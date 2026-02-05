@@ -45,7 +45,6 @@ This repository includes comprehensive learning materials in the `/notes` direct
    - Standardized context management
    - Protocol implementation
    - Advanced integration patterns
-
 8. **[7-retrieval-augmented-generation.md](notes/7-retrieval-augmented-generation.md)** - RAG (Retrieval Augmented Generation)
    - Information retrieval concepts
    - Augmented generation techniques
@@ -147,7 +146,8 @@ uber-ai-agent/
 │   ├── 4-function-call.md             # Function calling & tools
 │   ├── 5-agent-loop.md                # Agentic loops & workflows
 │   ├── 6-model-context-protocol.md    # MCP integration
-│   └── 7-retrieval-augmented-generation.md  # RAG implementation
+│   ├── 7-retrieval-augmented-generation.md  # RAG implementation
+│   └── 8-evals.md                     # Agent evaluations & testing
 │
 ├── src/
 │   ├── components/
