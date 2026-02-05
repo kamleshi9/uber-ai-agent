@@ -51,6 +51,14 @@ This repository includes comprehensive learning materials in the `/notes` direct
    - Augmented generation techniques
    - Implementation strategies
 
+9. **[8-evals.md](notes/8-evals.md)** - Evaluations (Evals) for AI Agents
+   - Understanding offline vs. online evaluations
+   - Single-turn and multi-turn eval strategies
+   - LLM-as-judge methodology
+   - Eval data sources and test design
+   - Hill climbing with evals for systematic improvement
+   - Scoring mechanisms and evaluator functions
+
 ### Using the Session Materials
 
 These notes are designed to be used alongside the interactive application:
