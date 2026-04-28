@@ -2,6 +2,8 @@
 
 An interactive educational application and comprehensive session material for learning how to build AI agents using OpenAI's API. This repository includes both a hands-on web application and detailed theoretical notes that progressively teach AI agent concepts from basics to advanced implementations.
 
+**GitHub Repository**: [github.com/kamleshi9/uber-ai-agent](https://github.com/kamleshi9/uber-ai-agent)
+
 ## Session Materials & Learning Notes
 
 This repository includes comprehensive learning materials in the `/notes` directory covering theoretical concepts and best practices:
