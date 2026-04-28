@@ -15,7 +15,8 @@ You don't need to read code. You don't need to build anything. The goal is that 
 | 4 | [Agent & the agent loop](4-agent.md) | What an agent is, and the rhythm it uses to run |
 | 5 | [MCP](5-mcp.md) | The standard plug for connecting tools |
 | 6 | [RAG](6-rag.md) | How a model answers questions about your stuff |
-| 7 | [Claude Code wrap-up](7-claude-code-wrap-up.md) | Where each concept shows up in Claude Code |
+| 7 | [The CLI](7-cli.md) | What the terminal is and why Claude Code lives there |
+| 8 | [Claude Code wrap-up](8-claude-code-wrap-up.md) | Where each concept shows up in Claude Code |
 
 ## How each chapter is laid out
 
@@ -37,10 +38,10 @@ The runnable demo app in `/src` has four sections. Each chapter's "Live demo" ca
 
 | App section | Chapters it demonstrates |
 |---|---|
-| **Section 1: Intro** | 0 — How LLMs work (model picker, temperature, basic API call, token usage) |
-| **Section 2: Conversation** | 1 — Memory & 2 — Context (watch the conversation transcript get re-sent every turn, see the context size grow) |
-| **Section 3: Tools** | 3 — Tools & function calling (Reddit + weather tool calls) |
-| **Section 4: Agent** | 4 — Agent & the agent loop (multi-step joke → meme workflow with a step-by-step timeline) |
+| **Section 1: Intro** | 1 — How LLMs work (model picker, temperature, basic API call, token usage) |
+| **Section 2: Conversation** | 2 — Memory & 3 — Context (watch the conversation transcript get re-sent every turn, see the context size grow) |
+| **Section 3: Tools** | 4 — Tools & function calling (Reddit + weather tool calls) |
+| **Section 4: Agent** | 5 — Agent & the agent loop (multi-step joke → meme workflow with a step-by-step timeline) |
 
 Chapters 5 (MCP) and 6 (RAG) are conceptual only — no demo.
 
