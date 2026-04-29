@@ -1,41 +1,109 @@
 # 7. The CLI
 
 ## In one line
-The CLI is a text-based way to give instructions to your computer — like texting your laptop instead of tapping on icons.
+The CLI is a text-based way to give instructions to your Mac — like texting your laptop instead of tapping on icons.
 
 ## The analogy
-Your computer has two ways to interact with it:
+Your Mac has two ways to interact with it:
 
-- **Icons and buttons** — the visual interface you're used to. Tap the icon, drag the file, click the menu. Designed to be visual and discoverable.
-- **Text commands** — type exactly what you want, press enter, get a result back. Less visual, but more direct and flexible.
+- **Icons and buttons** — the visual interface you're used to. Click the icon, drag the file, open the menu. Designed to be visual and discoverable.
+- **Text commands** — type exactly what you want, press Enter, get a result back. Less visual, but faster and more powerful once you know the basics.
 
-The **terminal** (also called the shell or command line) is just a window where you type those commands. It's a text box your computer listens to.
+The **terminal** is just a window where you type those commands. It's a text box your Mac listens to.
 
-Claude Code lives here. You open a terminal, type `claude`, and start talking to it. Responses come back as text in the same window.
+Claude Code lives here. You open a terminal, type `claude`, and start a conversation. That's it.
 
-## What it really is
+---
 
-CLI stands for **Command Line Interface** — an interface to your computer that uses text instead of graphics.
+## Opening a terminal on Mac
 
-Instead of double-clicking to open a folder, you type `cd Documents`. Instead of dragging a file to trash, you type a command that removes it. Same actions, different interface.
+Press `Cmd + Space`, type **Terminal**, press `Enter`.
 
-For designers using Claude Code, the important things are:
+Or skip Apple's default and use **Warp** instead — it's a modern terminal built for humans, with autocomplete, readable output, and AI built in. Download at warp.dev. Most people find it much friendlier than the default terminal.
 
-- **The terminal is just a window.** It looks intimidating because it's all text and no icons, but it's doing the same things your computer always does.
-- **You launch Claude Code by typing `claude`.** Like opening an app, except you type its name instead of clicking.
-- **Commands are case-sensitive and need to be exact.** `Claude` is not the same as `claude`. Unlike a GUI where you can click around to find things, the CLI requires precision.
-- **You don't need to memorize commands.** Claude Code itself can tell you what to type when it needs you to run something.
+---
 
-## Why it matters to you
+## How a command is structured
 
-- **Claude Code's primary interface is the terminal.** Open one, type `claude`, and you're in.
-  - Mac: press `Cmd + Space`, type "Terminal", press Enter.
-  - Windows: search for "PowerShell" or "Windows Terminal".
-- **Some things Claude Code does will print output in the terminal** — running tests, installing packages, checking for errors. You'll see text scroll by. You don't need to understand all of it.
-- **There's a less terminal-heavy option.** Claude Code has extensions for VS Code (a code editor) that give you a panel with a more familiar interface. If the terminal feels too foreign, ask your engineering team to help you get that set up instead.
+Every command follows the same pattern:
+
+```
+command  [options]  [arguments]
+```
+
+- **command** — what you want to do
+- **options** — flags that change how it behaves (usually start with `--` or `-`)
+- **arguments** — what you're doing it *to* (a folder, a file, a URL)
+
+A real example:
+
+```
+git  commit  --message  "updated the homepage layout"
+ ↑      ↑       ↑              ↑
+tool  action  option        argument
+```
+
+You read it left to right: *"use git, do a commit, with this message."*
+
+Another example — navigating to a folder:
+
+```
+cd  ~/Desktop/my-project
+↑        ↑
+tool   argument (the path)
+```
+
+`cd` means "change directory" — it's how you move between folders in the terminal, the same way you'd double-click a folder in Finder.
+
+---
+
+## Commands you'll actually use
+
+| Command | What it does | Example |
+|---|---|---|
+| `cd` | Move into a folder | `cd ~/Desktop/my-project` |
+| `ls` | List files in the current folder | `ls` |
+| `pwd` | Show which folder you're currently in | `pwd` |
+| `claude` | Start Claude Code | `claude` |
+| `git status` | See what files have changed | `git status` |
+| `git add .` | Stage all changes | `git add .` |
+| `git commit -m "message"` | Save a snapshot with a description | `git commit -m "updated nav"` |
+| `git push` | Upload your changes to GitHub | `git push` |
+
+You don't need to memorize all of these. Claude Code will often tell you exactly what to type when it needs you to run something — just copy and paste.
+
+---
+
+## Getting help for any command
+
+Add `--help` to the end of any command to see what it does and what options it accepts:
+
+```
+git --help
+claude --help
+```
+
+The terminal prints a short manual right there. It's always accurate — unlike a web search that might be outdated.
+
+---
+
+## Shortcuts that will save you constantly
+
+| Shortcut | What it does |
+|---|---|
+| `↑` (up arrow) | Bring back the last command you typed — press it again for the one before that |
+| `Opt + ←` / `Opt + →` | Jump one word left or right (instead of moving one character at a time) |
+| `Cmd + K` | Clear the terminal screen (your history is still there, just scrolled away) |
+| `Ctrl + C` | Stop whatever is running right now |
+| `Shift + Enter` | Add a new line without submitting (useful in Claude Code for multi-line prompts) |
+| `Tab` | Autocomplete a file or folder name — start typing, press Tab, it fills in the rest |
+
+The `↑` shortcut alone will save you dozens of re-types per session. Use it constantly.
+
+---
 
 ## Easy to confuse with
 
-- **The terminal vs the CLI.** The terminal is the *window*; CLI is the *concept* (text-based interface). Most people use these words interchangeably and that's fine.
-- **The shell.** The shell is the program *inside* the terminal that interprets commands (`bash`, `zsh`, etc.). You don't need to know which one you're running — just open the terminal and type.
-- **The IDE.** An IDE (like VS Code) is a full code editor with a GUI. The terminal is a plain text window. Claude Code can run in either — as a CLI tool in the terminal, or as an extension panel inside an IDE.
+- **Terminal vs CLI.** The terminal is the *window*; CLI is the *concept* (text-based interface). The words are used interchangeably — both are fine.
+- **Finder vs the terminal.** Finder and the terminal see the same files and folders on your Mac — they're just two different interfaces to the same place. `cd Desktop` in the terminal is the same as clicking into your Desktop folder in Finder.
+- **The IDE.** VS Code is a full code editor with a visual interface. The terminal is a plain text window. Claude Code can run in either — as a CLI in the terminal, or as an extension panel inside VS Code.

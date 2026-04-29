@@ -17,6 +17,10 @@ You don't need to read code. You don't need to build anything. The goal is that 
 | 6 | [RAG](6-rag.md) | How a model answers questions about your stuff |
 | 7 | [The CLI](7-cli.md) | What the terminal is and why Claude Code lives there |
 | 8 | [Claude Code wrap-up](8-claude-code-wrap-up.md) | Where each concept shows up in Claude Code |
+| 9 | [Projects & repos](9-projects.md) | What a project is, how Git works, cloning, the Uber monorepo, SSH setup |
+| 10 | [IDEs & Cursor](10-ide-cursor.md) | What an IDE is, how Cursor works, Agent mode, Markdown preview |
+| 11 | [Using Claude Code](11-claude-code-how-to.md) | Commands, CLAUDE.md, skills, modes, plan mode, writing prompts, web files, publishing |
+| 12 | [Project: Flower shop](12-project-flower-shop.md) | End-to-end project — plan mode, build, iterate, publish |
 
 ## How each chapter is laid out
 
