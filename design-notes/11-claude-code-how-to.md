@@ -36,7 +36,26 @@ Inside Claude Code, commands start with `/`. Type them at the prompt at any time
 
 ## Memory & CLAUDE.md
 
-Claude Code starts fresh every session — it remembers nothing from last time. To give it standing context, create a file called `CLAUDE.md` in your project folder:
+These are the same thing under the hood — both are just text files that get loaded into context at the start of every session. The only difference is **who writes them**.
+
+- **CLAUDE.md** is written by **you** — your rules, your project context, your preferences. Claude reads it but doesn't change it.
+- **Memory** is written by **Claude** — things it has learned about you that it saves for next time. You don't write these; Claude does, when you ask it to remember something.
+
+Both live in the same place and work the same way: text on disk that gets put on the desk at the start of each session.
+
+**Asking Claude to save something to memory:**
+
+```
+"Remember that I always want separate CSS and JS files"
+"Remember that my name is Priya and I'm a designer on the Eats team"
+# store that I prefer concise answers
+```
+
+Claude writes that to a memory file in `~/.claude/`. Next session, it reads it back and knows.
+
+**CLAUDE.md — what you write:**
+
+Create a file called `CLAUDE.md` in your project folder for project-specific context:
 
 ```
 # Project context
@@ -53,16 +72,17 @@ Claude Code starts fresh every session — it remembers nothing from last time. 
 - When in doubt, show a plan first
 ```
 
-Claude Code reads `CLAUDE.md` automatically every time it starts in that folder. It's the sticky note that's always on the desk.
+Claude Code reads `CLAUDE.md` automatically every time it starts in that folder.
 
-**Two levels of CLAUDE.md:**
+**Two levels — both work the same way:**
 
-| Level | File location | What it's for |
-|---|---|---|
-| **Project** | `./CLAUDE.md` (inside your project folder) | Context specific to this project — file structure, team, conventions |
-| **User** | `~/.claude/CLAUDE.md` (your home folder) | Your personal preferences that apply to every project |
+| Level | Who writes it | File location | What it's for |
+|---|---|---|---|
+| **Project CLAUDE.md** | You | `./CLAUDE.md` | Rules and context for this specific project |
+| **User CLAUDE.md** | You | `~/.claude/CLAUDE.md` | Your preferences across every project |
+| **Memory** | Claude | `~/.claude/memory/` | Things Claude has learned and saved about you |
 
-Start with the project-level one. Add a user-level one once you have preferences you want everywhere.
+Start with the project `CLAUDE.md`. Ask Claude to save things to memory as you go. Over time, you build up context that makes every session feel like it already knows you.
 
 ---
 

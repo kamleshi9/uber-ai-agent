@@ -8,20 +8,32 @@ You'll practice plan mode, working with separate files, making iterative improve
 
 ## Step 1: Set up the project
 
-Create a fresh folder for this project and move into it:
+Open Cursor. Go to **File → Open Folder**, then navigate to wherever you keep projects (Desktop is fine) and click **New Folder**, name it `flower-shop`, then click **Open**.
 
-```
-mkdir flower-shop
-cd flower-shop
-```
+Cursor is now pointed at your project folder. You'll see `flower-shop` in the Explorer panel on the left — empty for now.
+
+**Then open the built-in terminal** so you can run Claude Code from inside Cursor:
+- Go to **View → Terminal** (or press `` Ctrl + ` ``)
+- A terminal panel opens at the bottom, already inside your `flower-shop` folder
 
 ---
 
 ## Step 2: Create a CLAUDE.md
 
-Before launching Claude Code, create a `CLAUDE.md` in the folder. This is where you set the rules for how Claude should work in this project — and you'll add the plan folder instruction here too.
+Before launching Claude Code, create a `CLAUDE.md` in the folder. This tells Claude the rules for this project.
 
-Create a file called `CLAUDE.md` with this content:
+**Creating files and folders in Cursor:**
+
+In the Explorer panel (left sidebar), you'll see your `flower-shop` folder. To create a new file:
+
+1. Hover over the folder name in Explorer — a row of icons appears to the right
+2. Click the **New File** icon (a page with a `+`)
+3. Type `CLAUDE.md` and press `Enter`
+4. The file opens in the Editor — paste your content there
+
+To create a folder the same way: click the **New Folder** icon (a folder with a `+`) instead. You can also right-click anywhere in the Explorer panel for a context menu with these options.
+
+Create `CLAUDE.md` with this content:
 
 ```
 # Flower shop project
@@ -43,6 +55,8 @@ Once Claude Code reads this, it will always use separate files — without you h
 ---
 
 ## Step 3: Launch Claude Code
+
+In the terminal panel at the bottom of Cursor (already inside your `flower-shop` folder), type:
 
 ```
 aifx agent run claude
