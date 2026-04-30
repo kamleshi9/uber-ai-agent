@@ -8,16 +8,16 @@ You don't need to read code. You don't need to build anything. The goal is that 
 
 | # | File | What it covers |
 |---|---|---|
-| 0 | [How LLMs work](0-how-llms-work.md) | The intuition for what an LLM actually is |
-| 1 | [Memory](1-memory.md) | Why the whole conversation gets re-sent every turn |
-| 2 | [Context](2-context.md) | The full bundle the model sees in one request |
-| 3 | [Tools & function calling](3-tools-and-function-calling.md) | How the model takes action in the world |
-| 4 | [Agent & the agent loop](4-agent.md) | What an agent is, and the rhythm it uses to run |
-| 5 | [MCP](5-mcp.md) | The standard plug for connecting tools |
-| 6 | [RAG](6-rag.md) | How a model answers questions about your stuff |
-| 7 | [The CLI](7-cli.md) | What the terminal is and why Claude Code lives there |
-| 8 | [Claude Code wrap-up](8-claude-code-wrap-up.md) | Where each concept shows up in Claude Code |
-| 9 | [Projects & repos](9-projects.md) | What a project is, how Git works, cloning, the Uber monorepo, SSH setup |
+| 0 | [How LLMs work](00-how-llms-work.md) | The intuition for what an LLM actually is |
+| 1 | [Memory](01-memory.md) | Why the whole conversation gets re-sent every turn |
+| 2 | [Context](02-context.md) | The full bundle the model sees in one request |
+| 3 | [Tools & function calling](03-tools-and-function-calling.md) | How the model takes action in the world |
+| 4 | [Agent & the agent loop](04-agent.md) | What an agent is, and the rhythm it uses to run |
+| 5 | [MCP](05-mcp.md) | The standard plug for connecting tools |
+| 6 | [RAG](06-rag.md) | How a model answers questions about your stuff |
+| 7 | [The CLI](07-cli.md) | What the terminal is and why Claude Code lives there |
+| 8 | [Claude Code wrap-up](08-claude-code-wrap-up.md) | Where each concept shows up in Claude Code |
+| 9 | [Projects & repos](09-projects.md) | What a project is, how Git works, cloning, the Uber monorepo, SSH setup |
 | 10 | [IDEs & Cursor](10-ide-cursor.md) | What an IDE is, how Cursor works, Agent mode, Markdown preview |
 | 11 | [Using Claude Code](11-claude-code-how-to.md) | Commands, CLAUDE.md, skills, modes, plan mode, writing prompts, web files, publishing |
 | 12 | [Project: Flower shop](12-project-flower-shop.md) | End-to-end project — plan mode, build, iterate, publish |
