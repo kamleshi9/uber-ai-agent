@@ -12,10 +12,6 @@ Open Cursor. Go to **File → Open Folder**, then navigate to wherever you keep 
 
 Cursor is now pointed at your project folder. You'll see `flower-shop` in the Explorer panel on the left — empty for now.
 
-**Then open the built-in terminal** so you can run Claude Code from inside Cursor:
-- Go to **View → Terminal** (or press `` Ctrl + ` ``)
-- A terminal panel opens at the bottom, already inside your `flower-shop` folder
-
 ---
 
 ## Step 2: Create a CLAUDE.md
@@ -54,15 +50,67 @@ Once Claude Code reads this, it will always use separate files — without you h
 
 ---
 
-## Step 3: Launch Claude Code
+## Step 3a: Open Claude Code in the terminal
 
-In the terminal panel at the bottom of Cursor (already inside your `flower-shop` folder), type:
+Open a terminal inside Cursor with `Cmd + Shift + P`, type **Create New Terminal**, and press `Enter`. A terminal panel opens at the bottom, already inside your `flower-shop` folder.
+
+Then launch Claude Code:
 
 ```
-aifx agent run claude
+aifx agent run claude --dangerously-skip-permissions
 ```
 
 Claude Code will read your `CLAUDE.md` automatically.
+
+Once it's running, give the session a name so you can find it later:
+
+```
+/rename flower-shop
+```
+
+Then connect Claude Code to your Cursor window so they stay in sync:
+
+```
+/ide
+```
+
+---
+
+## Step 3b: Open the Claude Code extension as a panel
+
+For a better layout, you can also run Claude Code as a visual panel inside Cursor — keeping your files on the left and Claude on the right.
+
+Press `Cmd + Shift + P`, type **Claude Code**, and select **Claude Code: Open in New Tab**. It opens as a tab in the editor area.
+
+**Move it to the right side:**
+
+1. Click and hold the Claude Code tab
+2. Drag it all the way to the right edge of the editor area — you'll see a blue highlight appear on the right half
+3. Drop it there — Claude Code is now in a right-side panel, your files on the left
+
+**Lock the layout so files always open on the left:**
+
+Right-click the Claude Code panel tab → **Lock Group**. This is the setting that makes files open on the left — a locked panel refuses to open files, so Cursor has no choice but to use the left panel instead.
+
+After locking, click once anywhere in the left editor to make it the active group. Cursor opens files in whichever panel was last clicked — so keeping focus on the left means any file you click in Explorer always opens there.
+
+Your workspace should now look like this:
+
+```
+┌─────────────┬──────────────────┬──────────────────┐
+│  Explorer   │   Editor (left)  │   Claude Code    │
+│             │                  │                  │
+│  File tree  │  Files open here │  Chat with       │
+│             │  when you click  │  Claude here     │
+│             │  them            │                  │
+└─────────────┴──────────────────┴──────────────────┘
+```
+
+Then rename the session so you can find it later — type this in the Claude Code panel:
+
+```
+/rename flower-shop
+```
 
 ---
 
@@ -73,7 +121,7 @@ Instead of baking the plan-folder rule into `CLAUDE.md`, ask Claude Code to save
 Type this into Claude Code:
 
 ```
-Remember: before starting any significant work, write a plan to the ./plan folder. Name plan files descriptively like ./plan/01-initial-build.md, ./plan/02-improvements.md, etc.
+add this to project memory: before starting any significant work, write a plan to the ./plan folder. Name plan files descriptively like ./plan/01-initial-build.md, ./plan/02-improvements.md, etc.
 ```
 
 Claude will save this to its memory system. From now on, it will write a plan first without you having to ask each time.
@@ -81,6 +129,13 @@ Claude will save this to its memory system. From now on, it will write a plan fi
 ---
 
 ## Step 5: Tell Claude what to build
+
+First, switch to plan mode. You can do this two ways:
+
+- **In the terminal:** type `/plan`
+- **In the extension:** click the mode button in the bottom-right corner of the Claude Code panel, next to the send button — select **Plan** from the menu
+
+Plan mode means Claude will think through and write a plan before touching any files.
 
 Now describe what you want — be as specific or open-ended as you like:
 
@@ -91,8 +146,6 @@ I want to build a flower ordering website. It should have:
 - A "Add to wishlist" button on each flower
 - A wishlist panel that shows what you've saved
 - A clean, elegant design
-
-Before you start, write a plan to ./plan/01-initial-build.md and wait for my approval.
 ```
 
 Feel free to change anything — add a cart, a search bar, a featured section, a different color scheme. This is your site.
@@ -104,6 +157,7 @@ Feel free to change anything — add a cart, a search bar, a featured section, a
 Claude will create a `./plan/01-initial-build.md` file with its approach — what files it'll create, what the structure will look like, what features it'll build first.
 
 Read it. You're looking for:
+
 - Does the structure make sense?
 - Does it match what you asked for?
 - Is anything missing or wrong?
@@ -116,6 +170,8 @@ Also remove the newsletter signup — I don't want that.
 ```
 
 Once you're happy: `"Looks good, go ahead."`
+
+Before Claude starts building, switch mode from Plan to **Auto** (bypass permissions) so it can create and edit files without asking for approval at every step. Click the mode button in the bottom-right of the Claude Code panel and select **Auto** — or type `shift+tab` to cycle through modes in the terminal.
 
 Claude will then build `index.html`, `styles.css`, and `script.js` — three separate files as your CLAUDE.md requires.
 
@@ -167,7 +223,13 @@ When you're happy with the result, publish it so you can share a link.
 /plugin install page-publisher@agent-marketplace
 ```
 
-Exit and relaunch:
+Exit and relaunch, or run `/reload-plugins` to pick up the new plugin without leaving the session:
+
+```
+/reload-plugins
+```
+
+Or if you prefer a full restart:
 
 ```
 exit
@@ -177,7 +239,7 @@ aifx agent run claude
 **Publish:**
 
 ```
-"Publish this page"
+"Publish this page to terrablob"
 ```
 
 Claude will build a self-contained version of the site and push it to `personal.uberinternal.com/yourname/flower-shop.html`. You'll get a link you can share with anyone at Uber.
@@ -186,14 +248,16 @@ Claude will build a self-contained version of the site and push it to `personal.
 
 ## What you just practiced
 
-| Skill | Where you used it |
-|---|---|
-| Setting up a project with CLAUDE.md | Step 2 — code conventions and project context |
-| Using Claude Code's memory | Step 4 — saving the plan rule across sessions |
-| Plan mode | Steps 5–6 — reviewing approach before Claude acts |
-| Working with separate files | Throughout — HTML, CSS, JS always separate |
-| Iterative improvement | Step 8 — describing changes in plain English |
-| Publishing | Step 9 — page-publisher to a shareable URL |
+
+| Skill                               | Where you used it                                 |
+| ----------------------------------- | ------------------------------------------------- |
+| Setting up a project with CLAUDE.md | Step 2 — code conventions and project context     |
+| Using Claude Code's memory          | Step 4 — saving the plan rule across sessions     |
+| Plan mode                           | Steps 5–6 — reviewing approach before Claude acts |
+| Working with separate files         | Throughout — HTML, CSS, JS always separate        |
+| Iterative improvement               | Step 8 — describing changes in plain English      |
+| Publishing                          | Step 9 — page-publisher to a shareable URL        |
+
 
 ---
 
@@ -205,3 +269,4 @@ Claude will build a self-contained version of the site and push it to `personal.
 - Use real flower photos by linking to image URLs
 - Add a search or filter by flower type or price range
 - Ask Claude to `"make the page feel more premium — think high-end florist, not supermarket"`
+
